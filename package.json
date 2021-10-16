@@ -1,0 +1,28 @@
+{
+  "name": "challenge-18",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Guillermo Fernandez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.11",
+    "nodemon": "^2.0.13"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gfernandez25/social-network-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gfernandez25/social-network-api/issues"
+  },
+  "homepage": "https://github.com/gfernandez25/social-network-api#readme"
+}
