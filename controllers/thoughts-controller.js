@@ -71,13 +71,39 @@ const thoughtsController = {
                 );
             })
             .then(data => {
+                // if (!data) {
+                //     res.status(404).json({message: 'No user found with this id!'});
+                //     return;
+                // }
+                res.json(data);
+            })
+            .catch(err => res.status(400).json(err));
+    },
+    // add reaction to thought
+    addReaction({ params, body }, res) {
+        thoughts.findOneAndUpdate(
+            { _id: params.thoughtId },
+            { $push: { reactions: body } },
+            { new: true, runValidators: true }
+        )
+            .then(data => {
                 if (!data) {
-                    res.status(404).json({message: 'No user found with this id!'});
+                    res.status(404).json({ message: 'No thought found with this id!' });
                     return;
                 }
                 res.json(data);
             })
-            .catch(err => res.status(400).json(err));
+            .catch(err => res.json(err));
+    },
+    // remove reaction to thought
+    removeReaction({ params }, res) {
+        thoughts.findOneAndUpdate(
+            { _id: params.thoughtId },
+            { $pull: { reactions: { reactionId: params.reactionId } } },
+            { new: true }
+        )
+            .then(data => res.json(data))
+            .catch(err => res.json(err));
     }
 };
 

@@ -11,6 +11,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
+        trim:true,
         validate: {
             validator: function (v) {
                 return /\w+@\w+.\w+/.test(v);
@@ -30,7 +31,12 @@ const userSchema = new Schema({
     },
     friends: {
         // Array of _id values referencing the User model (self-reference)
-        type: [],
+        type: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ]
     }
 }, {
     toJSON: {
