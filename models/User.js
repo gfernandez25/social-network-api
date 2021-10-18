@@ -1,4 +1,5 @@
-const {Schema, model} = require('mongoose');
+const {Schema, model, Types} = require('mongoose');
+
 const userSchema = new Schema({
     username: {
         type: String,
@@ -19,7 +20,12 @@ const userSchema = new Schema({
     },
     thoughts: {
         // Array of _id values referencing the Thought model
-        type: []
+        type: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
+            }
+        ]
 
     },
     friends: {
@@ -42,7 +48,15 @@ userSchema.virtual("friendCount")
         return this.friends.length
     })
 
+// // get total count of comments and replies on retrieval
+// PizzaSchema.virtual('commentCount').get(function() {
+//     return this.comments.reduce(
+//         (total, comment) => total + comment.replies.length + 1,
+//         0
+//     );
+// });
 
-module.exports = model('users', userSchema);
+
+module.exports = model('User', userSchema);
 
 
