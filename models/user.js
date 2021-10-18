@@ -25,15 +25,22 @@ const userSchema = new Schema({
     friends: {
         // Array of _id values referencing the User model (self-reference)
         type: [],
+    }
+}, {
+    toJSON: {
+        virtuals: true,
+        getters: true
     },
+    // prevents virtuals from creating duplicate of _id as `id`
+    id: false
 
 })
 
 // Create a virtual called friendCount that retrieves the length of the user's friends array field on query.
 userSchema.virtual("friendCount")
-.get(function () {
-    return this.friends.length
-})
+    .get(function () {
+        return this.friends.length
+    })
 
 
 module.exports = model('users', userSchema);
