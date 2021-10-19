@@ -27,7 +27,6 @@ const userSchema = new Schema({
                 ref: 'Thought'
             }
         ]
-
     },
     friends: {
         // Array of _id values referencing the User model (self-reference)
@@ -53,15 +52,6 @@ userSchema.virtual("friendCount")
     .get(function () {
         return this.friends.length
     })
-
-// // get total count of comments and replies on retrieval
-// PizzaSchema.virtual('commentCount').get(function() {
-//     return this.comments.reduce(
-//         (total, comment) => total + comment.replies.length + 1,
-//         0
-//     );
-// });
-
 
 module.exports = model('User', userSchema);
 
