@@ -1,4 +1,5 @@
 const {Schema, model, Types} = require('mongoose');
+const {thoughts} = require("./index");
 
 const userSchema = new Schema({
     username: {
@@ -11,7 +12,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        trim:true,
+        trim: true,
         validate: {
             validator: function (v) {
                 return /\w+@\w+.\w+/.test(v);

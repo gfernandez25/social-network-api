@@ -1,4 +1,4 @@
-const {users} = require('../models');
+const { users, thoughts} = require('../models');
 
 const usersController = {
     // get all users
@@ -58,7 +58,6 @@ const usersController = {
             })
             .catch(err => res.status(400).json(err));
     },
-
     //add friend by id
     addFriendById({params}, res) {
         users.findOneAndUpdate(
@@ -79,8 +78,8 @@ const usersController = {
     deleteFriendById({params}, res) {
         users.findOneAndUpdate(
             {_id: params.userId},
-            { $pull: {friends: params.friendId } },
-            { new: true }
+            {$pull: {friends: params.friendId}},
+            {new: true}
         )
             .then(data => res.json(data))
             .catch(err => res.json(err));
