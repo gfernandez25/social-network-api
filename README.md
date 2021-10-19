@@ -31,6 +31,9 @@ Please see walk through video
 
 Routes can be tested on Heroku.
 
+https://obscure-tundra-07551.herokuapp.com/api/categories
+
+https://lit-falls-58656.herokuapp.com/
 
 ## License
 
