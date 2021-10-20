@@ -31,8 +31,7 @@ Please see walk through video
 
 Routes can be tested on Heroku.
 
-https://lit-falls-58656.herokuapp.com \
-    +/api/users/     ----with a GET will get all users\
+https://lit-falls-58656.herokuapp.com/api/users/  \
     +/api/users/     ----with a POST will add a new user to database
 
 ## License
