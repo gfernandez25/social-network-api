@@ -24,16 +24,16 @@ This project creates the back end for an e-commerce site. It uses and  Express.j
 
 ## Usage
 Please see walk through video
-[how to video](https://drive.google.com/file/d/16ucWXFki8Kr-HA13yySmfgAIWItfW8xX/view)
+[how to video](https://watch.screencastify.com/v/qO1Rt3khhbbyYXftXYa7)
 
 ## Screenshot
 ![ScreenShot](public/images/backend-social-api.png)
 
 Routes can be tested on Heroku.
 
-https://obscure-tundra-07551.herokuapp.com/api/categories
-
-https://lit-falls-58656.herokuapp.com/
+https://lit-falls-58656.herokuapp.com \
+    +/api/users/     ----with a GET will get all users\
+    +/api/users/     ----with a POST will add a new user to database
 
 ## License
 

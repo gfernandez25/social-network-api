@@ -54,6 +54,7 @@ userSchema.virtual("friendCount")
         return this.friends.length
     })
 
+
 module.exports = model('User', userSchema);
 
 
